@@ -44,4 +44,18 @@ describe Person do
     p = Person.create(:first_name => "Joe")
     p.should be_joe
   end
+  
+  it 'can make a person from factory' do
+    p = FactoryGirl.create(:person)
+    p.should_not be_nil
+    p.should be_kind_of(Person)
+  end
+  
+  it 'should find people by partial name match' do
+    john = FactoryGirl.create(:person, :first_name => "Jona", :last_name => "Doe")
+    peter = FactoryGirl.create(:person, :first_name => "Peter", :last_name => "Jones")
+    sally = FactoryGirl.create(:person, :first_name => "Sally", :last_name => "Parker")
+    Person.all.should == [john, peter, sally]
+    Person.search_by_name("Jon").should == [john, peter]
+  end
 end

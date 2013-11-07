@@ -23,4 +23,13 @@ describe Address do
       end  
     end
   end
+   
+  describe 'when country is missing' do
+    it 'defaults to USA' do
+      a = Address.new(@attributes)
+      a.country.should be_blank
+      a.save 
+      a.country.should == "USA"
+    end
+  end
 end

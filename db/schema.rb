@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131107014411) do
+ActiveRecord::Schema.define(version: 20131107022423) do
 
   create_table "addresses", force: true do |t|
     t.string   "street"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20131107014411) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "country"
   end
 
   add_index "addresses", ["person_id"], name: "index_addresses_on_person_id"
