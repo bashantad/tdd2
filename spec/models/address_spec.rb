@@ -16,12 +16,10 @@ describe Address do
   
   context 'Validations' do
     [:street, :city, :zip, :person_id].each do |attr|
-      it "must have a #{attr}" do
-        a = Address.create
-        a.should_not be_valid
-        a.errors.messages[attr].should_not be_nil
-      end  
+      it { should validate_presence_of(attr)}
     end
+    
+    it { should belong_to(:person)}
   end
    
   describe 'when country is missing' do

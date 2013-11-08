@@ -23,5 +23,10 @@ describe Message do
       msg.sender.should_not be_nil
       msg.sender.should be_kind_of(Person)
     end
+    it { should belong_to(:recipient)} 
+    it { should belong_to(:sender)}
+    it { should validate_presence_of(:body)}
+    it { should validate_presence_of(:recipient)}
+    it {should validate_presence_of(:sender)}
   end
 end

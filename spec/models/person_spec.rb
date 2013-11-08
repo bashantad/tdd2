@@ -58,4 +58,6 @@ describe Person do
     Person.all.should == [john, peter, sally]
     Person.search_by_name("Jon").should == [john, peter]
   end
+  
+  it { should have_many(:messages)}
 end
