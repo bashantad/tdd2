@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   validates :first_name, :last_name, :presence => true
-  has_many :messages, :foreign_key => 'recipient_id'
+  has_many :messages, :foreign_key => "recipient_id"
+  has_one :address, :foreign_key => "person_id"
   def joe?
     first_name == "Joe"
   end

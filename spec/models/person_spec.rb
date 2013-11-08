@@ -60,4 +60,5 @@ describe Person do
   end
   
   it { should have_many(:messages)}
+  it {should have_one(:address)}
 end
